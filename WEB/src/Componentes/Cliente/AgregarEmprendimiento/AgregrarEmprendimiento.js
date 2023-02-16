@@ -1,6 +1,5 @@
 import React from 'react'
 import {Form, FormGroup, Label,Input} from 'reactstrap'
-import axios from 'axios'
 import { Button } from 'semantic-ui-react'
 
 //onSubmit={this.props.Emprendimiento ? this.editarEmprendimiento :this.crearEmprendimiento}
