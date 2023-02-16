@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify"
 import "./Loginform.scss"
-//rfc
+
 export function Loginform(){
 
     const formik = useFormik({

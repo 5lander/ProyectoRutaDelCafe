@@ -19,14 +19,14 @@ export function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Admin site</Nav.Link>
-            <Nav.Link href="#action2">Ingresa</Nav.Link>
+            <Nav.Link href="/admin">Admin site</Nav.Link>
             <NavDropdown title="Emprendimiento" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Emprendimientos</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
+              <NavDropdown.Item href="/">Emprendimientos</NavDropdown.Item>
+              <NavDropdown.Item href="/agregarEmprendimiento">
                 AgregarEmprendimientos
               </NavDropdown.Item>
             </NavDropdown>
+
           </Nav>
           <Form className="d-flex">
             <Form.Control

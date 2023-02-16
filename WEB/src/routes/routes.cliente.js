@@ -1,5 +1,5 @@
 import { ClienteLayout } from '../Layouts'
-import { Home,Emprendimientos,Emprendedores  } from '../Pages/Cliente'
+import { Home,Emprendimiento,Reserva,AgregarEmprendimiento  } from '../Pages/Cliente'
 
 const routesCliente = [
     {
@@ -7,15 +7,21 @@ const routesCliente = [
         layout : ClienteLayout,
         component: Home,
     },
+
     {
-        path:"/emprendimientos",
+        path:"/emprendimiento",
         layout : ClienteLayout,
-        component: Emprendimientos,
+        component: Emprendimiento,
     },
     {
-        path:"/emprendedores",
+        path:"/agregaremprendimiento",
         layout : ClienteLayout,
-        component: Emprendedores,
+        component: AgregarEmprendimiento,
+    },
+    {
+        path:"/reserva",
+        layout : ClienteLayout,
+        component: Reserva,
     },
 ];
 

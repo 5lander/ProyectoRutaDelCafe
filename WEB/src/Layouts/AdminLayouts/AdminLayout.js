@@ -9,7 +9,7 @@ export  function AdminLayout(props) {
     if (!auth) return <LoginAdmin/>
   return (
     <div>
-            <h1>Pantalla Administradores</h1>
+          
         { children }
     </div>
 

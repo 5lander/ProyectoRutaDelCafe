@@ -1,18 +1,20 @@
 import React from 'react';
 import './LoginAdmin.scss';
 import { Loginform } from '../../../Componentes/Admin';
+import {Header,Footer} from '../../../Componentes/Cliente'
 export function LoginAdmin(props) {
     return (  
     <div>
+     <Header/>
         <div className='login-admin'>
           <div className='login-admin__content'>
-             <h1>Entrar al formulario </h1>
-
-             <Loginform/>
+          Inicio de Sesion
+            <Loginform/>
+            
           </div>
           
         </div>
-
+        <Footer/>
 
 
     </div>

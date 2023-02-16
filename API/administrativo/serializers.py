@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Emprendimiento, Emprendedor,Servicio
+from .models import *
 
 class EmprendimientoSerializers(serializers.ModelSerializer):
     class Meta:
@@ -14,6 +14,16 @@ class EmprendedorSerializers(serializers.ModelSerializer):
 class ServicioSerializers(serializers.ModelSerializer):
     class Meta:
         model=Servicio
+        fields='__all__'
+
+class ReservaSerializers(serializers.ModelSerializer):
+    class Meta:
+        model= Reserva
+        fields='__all__'
+        
+class ProductoSerializers(serializers.ModelSerializer):
+    class Meta:
+        model= Producto
         fields='__all__'
 
 

@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status, viewsets
 from .forms import *
-from .serializers import EmprendimientoSerializers, EmprendedorSerializers,ServicioSerializers
+from .serializers import *
 from .models import Emprendimiento,Emprendedor,Servicio, Producto,Rating
 
 ################################################### INDEX ###################################################
@@ -144,6 +144,20 @@ class Servicio_APIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)    
 
+class Producto_APIView(APIView):
+    def get(self, request,format =None, *args, **Kwargs):
+        producto= Producto.objects.all()
+        serializer= ProductoSerializers(producto,many=True)
+        return Response(serializer.data)
+
+    def post(self,request,format=None):
+        serializer=ProductoSerializers(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)  
+
+
 class Servicio_APIView_Detalles(APIView):
 
     def get_object(self, servicio_id):
@@ -196,6 +210,33 @@ class Emprendimiento_APIView(APIView):
         print(data)
         
         serializer=EmprendimientoSerializers(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)    
+
+
+class Reserva_APIView(APIView):
+
+    def get(self, request,format =None, *args, **Kwargs):
+
+        reservas = Reserva.objects.all()
+        serializer= ReservaSerializers(reservas,many=True)
+        
+        return Response(serializer.data)
+
+    def post(self,request,format=None, *args,**kwargs):
+        print(request.data)
+        data ={
+            'fechaReservar':request.data.get('fechaReservar'),
+            'cantidad':request.data.get('cantidad'),
+            'emprendimiento':request.data.get('emprendimiento'),
+            'producto':request.data.get('producto'),
+        }
+        print(data)
+        
+        serializer=ReservaSerializers(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
